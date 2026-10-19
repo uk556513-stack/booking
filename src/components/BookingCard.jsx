@@ -18,18 +18,31 @@ export default function BookingCard({ item, bookedDate, onChoose }) {
         {/* pop-out props: transparent images, no background box */}
         {isKayak ? (
           <>
-            <div className="prop wave"><img src="/wave.svg" alt="" draggable="false" /></div>
-            <div className="prop boat"><img src="/boat.svg" alt="" draggable="false" /></div>
+            <div className="prop wave">
+              <img src={`${import.meta.env.BASE_URL}wave.svg`} alt="" draggable="false" />
+            </div>
+            <div className="prop boat">
+              <img src={`${import.meta.env.BASE_URL}boat.svg`} alt="" draggable="false" />
+            </div>
           </>
         ) : (
           <>
-            <div className="prop tent"><img src="/tent.svg" alt="" draggable="false" /></div>
-            <div className="prop bush"><img src="/bush.svg" alt="" draggable="false" /></div>
+            <div className="prop tent">
+              <img src={`${import.meta.env.BASE_URL}tent.svg`} alt="" draggable="false" />
+            </div>
+            <div className="prop bush">
+              <img src={`${import.meta.env.BASE_URL}bush.svg`} alt="" draggable="false" />
+            </div>
           </>
         )}
-        <div className="prop stone"><img src="/stone.svg" alt="" draggable="false" /></div>
 
-        <div className="media"><SceneArt type={item.key} /></div>
+        <div className="prop stone">
+          <img src={`${import.meta.env.BASE_URL}stone.svg`} alt="" draggable="false" />
+        </div>
+
+        <div className="media">
+          <SceneArt type={item.key} />
+        </div>
 
         <div className="body">
           <div className="title">{item.title}</div>
@@ -39,10 +52,16 @@ export default function BookingCard({ item, bookedDate, onChoose }) {
             <span className="price-separator">/</span>
             <span className="price-duration">{item.duration}</span>
           </div>
+
           <div className="per">per person</div>
 
           <div className="loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z" />
               <circle cx="12" cy="10" r="2.5" />
             </svg>
@@ -50,7 +69,10 @@ export default function BookingCard({ item, bookedDate, onChoose }) {
           </div>
 
           {bookedDate && (
-            <div className="badge"><i /><span>Booked for {fmtDate(bookedDate)}</span></div>
+            <div className="badge">
+              <i />
+              <span>Booked for {fmtDate(bookedDate)}</span>
+            </div>
           )}
 
           <button className="cta" onClick={onChoose}>
